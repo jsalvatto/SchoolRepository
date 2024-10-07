@@ -55,13 +55,27 @@ int main() {
     char choice;
     do{
         userReview(head);
-        cout<<"Enter review?";
+        cout<<"Enter review? Press Y to continue or press any other key to display reviews.";
         cin>>choice;
     }while (choice == 'y' || choice == 'Y');
     
     printNode(head);
     
+    double ratingAverage;
+    double ratingCount;
     movieReview* current = head;
+    while (current != nullptr){
+        ratingAverage += current->rating;
+        ratingCount++;
+        current = current->next;
+    }
+    if (ratingCount > 0){
+        double average = ratingAverage / ratingCount;
+        cout<<"Average: "<<average<<endl;
+    }
+    
+    
+    
     while (current != nullptr){
         movieReview* next = current->next;
         delete current;
