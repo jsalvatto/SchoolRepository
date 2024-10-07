@@ -1,0 +1,58 @@
+// COMSC-210 | Lab 18 | Joseph Salvatto
+// Codelite IDE
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <limits>
+#include <fstream>
+using namespace std;
+
+    struct movieReview{
+        string comment;
+        double rating;
+        movieReview* next;
+    };
+    
+    void printNode(movieReview* head){
+        movieReview* current = head;
+        while (current != nullptr){
+            cout<<"Comment: "<<current->comment<<"Rating: "<<current->rating<<"->";
+            current = current->next;
+        }
+        cout<<"nullptr"<<endl;
+    }
+    
+int main() {
+
+    movieReview* head = new movieReview;
+    movieReview* second = new movieReview;
+    movieReview* third = new movieReview;
+    movieReview* fourth = new movieReview;
+    
+    head->comment = "Rating = 5 out of 5";
+    head->next = second;
+    
+    second->rating = 4.8;
+    second->comment = "Rating";
+    second->next = third;
+    
+    third->comment = "Once in a lifetime";
+    third->next = fourth;
+    
+    fourth->comment = "Unreal";
+    fourth->next = nullptr;
+    
+    printNode(head);
+    
+    delete head;
+    delete second;
+    delete third;
+
+return 0;
+}
+
+
