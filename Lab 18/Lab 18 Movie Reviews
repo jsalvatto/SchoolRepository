@@ -34,11 +34,23 @@ using namespace std;
         getline(cin, newReview->comment);
         cout<<"Enter review rating on scale of 0 - 5: ";
         cin>>newReview->rating;
+        
+        newReview->next = nullptr;
+        
+        if (head == nullptr){
+            head = newReview;
+        }else{
+            movieReview* current = head;
+            while (current->next != nullptr){
+                current = current->next;
+            }
+            current-> next = newReview;
+        }
     }
     
 int main() {
 
-    movieReview* head = new movieReview;
+    movieReview* head = nullptr;
     movieReview* second = new movieReview;
     movieReview* third = new movieReview;
     movieReview* fourth = new movieReview;
