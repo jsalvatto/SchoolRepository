@@ -27,7 +27,7 @@ using namespace std;
         cout<<"nullptr"<<endl;
     }
     
-    void userReview(movieReview*& head, int value){
+    void userReview(movieReview*& head){
         movieReview* newReview = new movieReview;
         cout<<"Enter review comments: ";
         cin.ignore();
@@ -51,32 +51,48 @@ using namespace std;
 int main() {
 
     movieReview* head = nullptr;
-    movieReview* second = new movieReview;
-    movieReview* third = new movieReview;
-    movieReview* fourth = new movieReview;
     
-    head->rating = 4.3;
-    head->comment = "Gratifying";
-    head->next = second;
-    
-    second->rating = 4.8;
-    second->comment = "Rating";
-    second->next = third;
-    
-    third->rating = 4.6;
-    third->comment = "Once in a lifetime";
-    third->next = fourth;
-    
-    fourth->rating = 4.7;
-    fourth->comment = "Unreal";
-    fourth->next = nullptr;
+    char choice;
+    do{
+        userReview(head);
+        cout<<"Enter review?";
+        cin>>choice;
+    }while (choice == 'y' || choice == 'Y');
     
     printNode(head);
     
-    delete head;
-    delete second;
-    delete third;
-
+    movieReview* current = head;
+    while (current != nullptr){
+        movieReview* next = current->next;
+        delete current;
+        current = next;
+    }
+//    movieReview* second = new movieReview;
+//    movieReview* third = new movieReview;
+//    movieReview* fourth = new movieReview;
+//    
+//    head->rating = 4.3;
+//    head->comment = "Gratifying";
+//    head->next = second;
+//    
+//    second->rating = 4.8;
+//    second->comment = "Rating";
+//    second->next = third;
+//    
+//    third->rating = 4.6;
+//    third->comment = "Once in a lifetime";
+//    third->next = fourth;
+//    
+//    fourth->rating = 4.7;
+//    fourth->comment = "Unreal";
+//    fourth->next = nullptr;
+//    
+//    printNode(head);
+//    
+//    delete head;
+//    delete second;
+//    delete third;
+//
 return 0;
 }
 
