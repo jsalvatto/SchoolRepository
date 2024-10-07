@@ -24,7 +24,7 @@ using namespace std;
             cout<<"Rating: "<<current->rating<<endl;
             current = current->next;
         }
-        cout<<"nullptr"<<endl;
+        
     }
     
     void userReview(movieReview*& head){
@@ -74,39 +74,12 @@ int main() {
         cout<<"Average: "<<average<<endl;
     }
     
-    
-    
     while (current != nullptr){
         movieReview* next = current->next;
         delete current;
         current = next;
     }
-//    movieReview* second = new movieReview;
-//    movieReview* third = new movieReview;
-//    movieReview* fourth = new movieReview;
-//    
-//    head->rating = 4.3;
-//    head->comment = "Gratifying";
-//    head->next = second;
-//    
-//    second->rating = 4.8;
-//    second->comment = "Rating";
-//    second->next = third;
-//    
-//    third->rating = 4.6;
-//    third->comment = "Once in a lifetime";
-//    third->next = fourth;
-//    
-//    fourth->rating = 4.7;
-//    fourth->comment = "Unreal";
-//    fourth->next = nullptr;
-//    
-//    printNode(head);
-//    
-//    delete head;
-//    delete second;
-//    delete third;
-//
+
 return 0;
 }
 
