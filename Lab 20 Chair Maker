@@ -39,6 +39,10 @@ using namespace std;
                 }
             }
             
+            void setLegs(int l) {legs = 1;}
+            int getLegs() { return legs;}
+            
+            
     }
     
 return 0;
