@@ -14,7 +14,7 @@
 using namespace std;
 
     const int SIZE = 3;
-    const int MIN = 10000, MAX = 99999
+    const int MIN = 10000, MAX = 99999;
     
     class Chair {
         private:
@@ -33,13 +33,13 @@ using namespace std;
         
             Chair (int l, double p[SIZE]){
                 prices = new double [SIZE];
-                legs = 1;
+                legs = l;
                 for (int i = 0; i < SIZE; i++){
                     prices[i] = p[i];
                 }
             }
             
-            void setLegs(int l) {legs = 1;}
+            void setLegs(int l) {legs = l;}
             int getLegs() { return legs;}
             
             void setPrices(double p1, double p2, double p3){
@@ -62,11 +62,36 @@ using namespace std;
                 for (int i = 0; i < SIZE; i++){
                     cout<<prices[i]<<" ";
                 }
-                cout<<endl<<"Historical average price: "<<getAverageprices();
+                cout<<endl<<"Historical average price: "<<getAveragePrices();
                 cout<<endl<<endl;
             }
+            ~Chair(){
+                delete[]prices;
+            }
             
-    }
+    };
+    
+    int main(){
+        srand(time(0));
+        
+        cout<<fixed<<setprecision(2);
+        
+        Chair *chairPtr = new Chair;
+        chairPtr->print();
+        
+        double prices[SIZE] = {602.35, 402.45, 202.55};
+        Chair *livingChair = new Chair(3, prices);
+        livingChair->print();
+        
+        delete livingChair;
+        livingChair = nullptr;
+        
+        Chair *collection = new Chair[SIZE];
+        for (int i = 0; i < SIZE; i++){
+            collection[i].print();
+        }
+        delete[]collection;
+    
     
 return 0;
 }
