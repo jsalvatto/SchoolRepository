@@ -45,7 +45,40 @@ using namespace std;
         string Goat :: names[NUM_NAMES] = {"Mike", "Bob", "Tom", "Tyrone", "DeSquarius", "Tevariousness", "Charlemagne", "Lee", "Mingtao", "Tojo", "Suni", "Korra", "Tailee", "Ram", "Sabrina"};
         string Goat::colors[NUM_COLORS] = {"Red", "Blue", "Green", "Yellow", "Orange", "Purple", "White", "Black", "Brown", "Gold", "Silver", "Bronze", "Cyan", "Grey", "Gray"};
         
-        
+        class DoublyLinkedList{
+            private:
+                struct Node{
+                    Goat data;
+                    Node* prev;
+                    Node* next;
+                    Node(Goat val, Node* p = nulptr, Node* n = nullptr) : data(val), prev(p), next(n){}
+                };
+                Node* head;
+                Node* tail;
+            public:
+                DoublyLinkedList() : head(nullptr), tail(nullptr){}
+                
+                void push_back(const Goat& value){
+                    Node* newNode = new Node(value);
+                    if (!tail){
+                        head = tail = newNode;
+                    }else{
+                        tail->next = newNode;
+                        newNode->prev = tail;
+                        tail = newNode;
+                    }
+                }
+                void push_front(const Goat& value){
+                    Node* newNode = new Node(value);
+                    if(!head){
+                        head = tail = newNode;
+                    }else{
+                        newNode->next = head;
+                        head->prev = newNode;
+                        head = newNode;
+                    }
+                }
+        }
     
 return 0;
 }
