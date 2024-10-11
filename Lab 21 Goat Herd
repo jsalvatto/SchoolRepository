@@ -78,6 +78,41 @@ using namespace std;
                         head = newNode;
                     }
                 }
+                void print() const{
+                    if(!head){
+                        cout<<"None."<<endl;
+                        return;
+                    }
+                    Node* current = head;
+                    while (current){
+                        current->data.print();
+                        cout<<endl;
+                        current = current->next;
+                    }
+                }
+                void print_reverse()const{
+                    if(!tail){
+                        cout<<"None."<<endl;
+                        return;
+                    }
+                    Node* current = tail;
+                    while(current){
+                        current->data.print();
+                        cout<<endl;
+                        current = current->prev;
+                    }
+                }
+                ~DoublyLinkedList(){
+                    while(head){
+                        Node* temp = head;
+                        head = head->next;
+                        delete temp;
+                    }
+                }
+        };
+        
+        int main(){
+            srand(time(0));
         }
     
 return 0;
