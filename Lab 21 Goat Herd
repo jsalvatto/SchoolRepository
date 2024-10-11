@@ -1,0 +1,40 @@
+// COMSC-210 | Lab 21 | Joseph Salvatto
+// Codelite IDE
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <limits>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+    const int MIN_AGE = 1, MAX_AGE = 20;
+    const int MIN_LS = 5, MAX_LS = 20;
+    const int NUM_NAMES = 15, NUM_COLORS = 15;
+    
+    class Goat {
+        private:
+            int age;
+            string name;
+            string color;
+            static string names[NUM_NAMES];
+            static string colors[NUM_COLORS];
+        public:
+            Goat(){
+                age = rand() % (MAX_AGE - MIN_AGE + 1) + MIN_AGE;
+                name = names[rand() % NUM_NAMES];
+                color = colors[rand() % NUM_COLORS;
+            }
+            
+    }
+    
+    
+return 0;
+}
+
+
