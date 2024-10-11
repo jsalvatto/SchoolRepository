@@ -31,8 +31,21 @@ using namespace std;
                 color = colors[rand() % NUM_COLORS;
             }
             
-    }
+            Goat(int a, string n, string c) : age(a), name(n), color(c){}
+            
+            int getAge() const {return age;}
+            string getName() const {return name;}
+            string getColor() const {return color;}
+            
+            void print() const{
+                cout<<name<<" "<<color<<" "<<age;
+            }
+    };
     
+        string Goat :: names[NUM_NAMES] = {"Mike", "Bob", "Tom", "Tyrone", "DeSquarius", "Tevariousness", "Charlemagne", "Lee", "Mingtao", "Tojo", "Suni", "Korra", "Tailee", "Ram", "Sabrina"};
+        string Goat::colors[NUM_COLORS] = {"Red", "Blue", "Green", "Yellow", "Orange", "Purple", "White", "Black", "Brown", "Gold", "Silver", "Bronze", "Cyan", "Grey", "Gray"};
+        
+        
     
 return 0;
 }
