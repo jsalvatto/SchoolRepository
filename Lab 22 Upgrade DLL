@@ -1,0 +1,52 @@
+// COMSC-210 | Lab 21 | Joseph Salvatto
+// Codelite IDE
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <limits>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+    const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS=20;
+
+    class DoublyLinkedList{
+        private:
+            struct Node{
+                int data;
+                Node* prev;
+                Node* next;
+                Node(int val, Node* p = nullptr, Node* n = nullptr){
+                    data = val;
+                    prev = p;
+                    next = n;
+                }
+            };
+            Node* head;
+            Node* tail;
+        public:
+            DoublyLinkedList(){
+                head = nullptr;
+                tail = nullptr;
+            }
+            
+        void push_back(int value){
+            Node* newNode = new Node(value);
+            if(!tail){
+                head = tail = newNode;
+            }else{
+                tail->next=newNode;
+                newNode->prev=tail;
+                tail=newNode;
+            }
+        }
+    }
+    return 0;
+}
+
+
