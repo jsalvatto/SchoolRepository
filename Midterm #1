@@ -6,30 +6,30 @@ using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
 
-class DoublyLinkedList {
+class DoublyLinkedList {//define the class as DoublyLinkedList to manage integers
 private:
-    struct Node {
-        int data;
-        Node* prev;
-        Node* next;
-        Node(int val, Node* p = nullptr, Node* n = nullptr) {
+    struct Node {//struct named node to represent a node in the doubly linked list
+        int data;//store integer in data
+        Node* prev;//points to previous node
+        Node* next;//points to next node
+        Node(int val, Node* p = nullptr, Node* n = nullptr) {//constructor initializes data
             data = val;
             prev = p;
             next = n;
         }
     };
-    Node* head;
-    Node* tail;
+    Node* head;//points to first or head node in a list
+    Node* tail;//points to last of tail node in a list
 
 public:
-    DoublyLinkedList() {
-        head = nullptr;
+    DoublyLinkedList() {//initializes list to nothing or empty
+        head = nullptr;//since list is empty, head and tail are null
         tail = nullptr;
     }
 
-    void insert_after(int value, int position) {
-        if (position < 0) {
-            cout << "Position must be >= 0." << endl;
+    void insert_after(int value, int position) {//function to insert new nodes at a given position
+        if (position < 0) {//
+            cout << "Position must be >= 0." << endl;//makes it so that a position cannot be negative
             return;
         }
         Node* newNode = new Node(value);
