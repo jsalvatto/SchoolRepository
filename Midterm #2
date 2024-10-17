@@ -209,7 +209,19 @@ vector<string>externalData(const string& filename){
 }
 
 int main() {
-    cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS; // dummy statement to avoid compiler warning
+    
+    srand(static_cast<unsigned int>(time(0)));
+    
+    vector<string>names = externalData("C:/Users/USER1/Downloads/names.txt");
+    if(names.empty()){
+        cerr<<"No names found. "<<endl;
+        return 1;
+    }
+    
+    DoublyLinkedList line;
+    
+    cout<<"Store opens: "<<endl;
+
     return 0;
 }
 
