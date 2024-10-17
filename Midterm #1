@@ -55,45 +55,45 @@ public:
     }
 
     void delete_val(int value) {//function to delete nodes at a given position
-        if (!head) return;
-        Node* temp = head;
-        while (temp && temp->data != value)
+        if (!head) return;//if nothing is in head there is nothing to delete
+        Node* temp = head;//start traversing from head node
+        while (temp && temp->data != value)//traverse until you get to matching value
             temp = temp->next;
-        if (!temp) return;
+        if (!temp) return;//if no node with the value is found return
         if (temp->prev)
-            temp->prev->next = temp->next;
+            temp->prev->next = temp->next;//update previous nodes next pointer if temp is not head
         else
             head = temp->next;
         if (temp->next)
-            temp->next->prev = temp->prev;
+            temp->next->prev = temp->prev;//update previous nodes next pointer if temp is not tail
         else
             tail = temp->prev;
-        delete temp;
+        delete temp;//delete to free up memory
     }
 
-    void delete_pos(int pos) {
+    void delete_pos(int pos) {//function to delete nodes at specified positions
         if (!head) {
             cout << "List is empty." << endl;
             return;
         }
-        if (pos == 1) {
+        if (pos == 1) {//if position is at 1 delete
             pop_front();
             return;
         }
-        Node* temp = head;
-        for (int i = 1; i < pos; i++) {
+        Node* temp = head;//start traversing from head node
+        for (int i = 1; i < pos; i++) {//traverse to specified position
             if (!temp) {
                 cout << "Position doesn't exist." << endl;
                 return;
             }
             temp = temp->next;
         }
-        if (!temp) {
+        if (!temp) {//show error if cant get to position
             cout << "Position doesn't exist." << endl;
             return;
         }
         if (!temp->next) {
-            pop_back();
+            pop_back();//using pop back
             return;
         }
         Node* tempPrev = temp->prev;
