@@ -99,44 +99,44 @@ public:
         Node* tempPrev = temp->prev;
         tempPrev->next = temp->next;
         temp->next->prev = tempPrev;
-        delete temp;
+        delete temp;//delete to free up memory
     }
 
-    void push_back(int v) {
-        Node* newNode = new Node(v);
+    void push_back(int v) {//function to add a new node to end of list
+        Node* newNode = new Node(v);//create the new node
         if (!tail)
             head = tail = newNode;
         else {
-            tail->next = newNode;
-            newNode->prev = tail;
-            tail = newNode;
+            tail->next = newNode;//update tails next to new node
+            newNode->prev = tail;//set new nodes previous to tail
+            tail = newNode;//update tail to new node
         }
     }
 
-    void push_front(int v) {
+    void push_front(int v) {//function to add a new node to the front of list
         Node* newNode = new Node(v);
         if (!head)
             head = tail = newNode;
         else {
-            newNode->next = head;
-            head->prev = newNode;
-            head = newNode;
+            newNode->next = head;//update newnodes next to head
+            head->prev = newNode;//update head prev to new node
+            head = newNode;//update head to new node
         }
     }
 
-    void pop_front() {
+    void pop_front() {//function to remove first node on a list
         if (!head) {
             cout << "List is empty." << endl;
             return;
         }
-        Node* temp = head;
-        if (head->next) {
+        Node* temp = head;//choose head to be removed
+        if (head->next) {//update head to next
             head = head->next;
-            head->prev = nullptr;
+            head->prev = nullptr;//update heads prev to null
         } else {
             head = tail = nullptr;
         }
-        delete temp;
+        delete temp;//remove temp and free up memory
     }
 
     void pop_back() {
