@@ -54,7 +54,7 @@ public:
         temp->next = newNode;
     }
 
-    void delete_val(int value) {
+    void delete_val(int value) {//function to delete nodes at a given position
         if (!head) return;
         Node* temp = head;
         while (temp && temp->data != value)
