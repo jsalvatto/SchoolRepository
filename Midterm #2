@@ -2,6 +2,8 @@
 // Codelite IDE
 
 #include <iostream>
+#include <vector>
+#include <fstream>
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
@@ -191,7 +193,19 @@ public:
 
 vector<string>externalData(const string& filename){
     vector<string> names;
-    ifstream names("C:/Users/USER1/Downloads/names.txt");
+    ifstream file("C:/Users/USER1/Downloads/names.txt");
+    if(!file){
+        cerr<<"Error opening file: "<<endl;
+        return names;
+    }
+    string name;
+    while(getline(file, name)){
+        if(!names.empty()){
+            names.push_back(name);
+        }
+    }
+    file.close();
+    return names;
 }
 
 int main() {
