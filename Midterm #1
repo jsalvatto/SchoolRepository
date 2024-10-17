@@ -187,6 +187,10 @@ public:
         }
         cout << endl;
     }
+
+    void every_other_element(){
+        Node*
+    }
 };
 
 int main() {
